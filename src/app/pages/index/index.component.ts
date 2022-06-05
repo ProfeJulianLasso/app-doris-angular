@@ -13,11 +13,11 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 })
 export class IndexComponent implements OnInit {
   nombre: string;
-  usuarios!: Array<Usuario>;
+  usuarios: Array<Usuario>;
 
   constructor(private usuario$: UsuarioService) {
     this.nombre = 'Doris';
-    // this.usuarios = new Array<Usuario>();
+    this.usuarios = new Array<Usuario>();
   }
 
   ngOnInit(): void {
