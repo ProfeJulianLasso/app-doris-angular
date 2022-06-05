@@ -1,7 +1,21 @@
+// Libraries
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+// Components
+import { IndexComponent } from './pages/index/index.component';
+import { FormularioComponent } from './pages/formulario/formulario.component';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: IndexComponent
+  },
+  {
+    path: 'formulario',
+    component: FormularioComponent
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

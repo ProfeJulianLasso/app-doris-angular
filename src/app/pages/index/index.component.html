@@ -1,0 +1,49 @@
+<div class="container">
+  <h2>Primer ejemplo</h2>
+  <div class="mb-3">
+    <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="nombre"
+      value="{{ nombre }}"
+    />
+  </div>
+  <div class="mb-3">
+    <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="nombre"
+      [value]="nombre"
+    />
+  </div>
+  <p>
+    {{ nombre }}
+  </p>
+  <!-- <a [routerLink]="['formulario']">Formulario</a> -->
+  <a
+    type="button"
+    class="btn btn-primary"
+    role="button"
+    [routerLink]="['./', 'formulario']"
+    >Formulario</a
+  >
+
+  <ng-container *ngIf="usuarios.length > 0">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of usuarios">
+          <td>{{ usuario.id }}</td>
+          <td>{{ usuario.nombre }}</td>
+          <td>{{ usuario.apellido }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
+</div>

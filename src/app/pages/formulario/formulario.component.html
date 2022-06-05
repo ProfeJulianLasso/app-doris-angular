@@ -1,0 +1,82 @@
+<div class="container">
+
+  <!-- Formulario -->
+  <form id="frmFormulario" [formGroup]="frmFormulario"
+    (ngSubmit)="frmFormulario.valid ? enviarFormulario() : frmFormulario.markAllAsTouched()" autocomplete="off">
+    <!-- <input type="number" name="id" id="id" placeholder="ID" formControlName="id" />
+  <br /> -->
+
+    <!-- Input Nombre -->
+    <div class="mb-3">
+      <input type="text" name="nombre" id="nombre" placeholder="Nombre" formControlName="nombre" class="form-control"
+        [ngClass]="{'is-invalid': setIsInvalid('nombre')}" />
+      <!-- <div
+        *ngIf="
+          (frmFormulario.get('nombre')?.errors | formOneError) === 'required'
+        "
+      > -->
+
+      <!-- Mensaje de validación de requerido -->
+      <div class="invalid-feedback" *ngIf="
+          frmFormulario.hasError('required', 'nombre') &&
+          (!frmFormulario.get('nombre')?.pristine || frmFormulario.get('nombre')?.touched)
+        ">
+        El nombre es requerido
+      </div>
+
+      <!-- Mensaje de validación de mínimo 3 caractreres -->
+      <div class="invalid-feedback" *ngIf="
+          frmFormulario.hasError('minlength', 'nombre') &&
+          (!frmFormulario.get('nombre')?.pristine || frmFormulario.get('nombre')?.touched)
+        ">
+        Mínimo 3 caracteres
+      </div>
+
+      <!-- Mensaje de validación de máximo 3 caractreres -->
+      <div class="invalid-feedback" *ngIf="
+          frmFormulario.hasError('maxlength', 'nombre') &&
+          (!frmFormulario.get('nombre')?.pristine || frmFormulario.get('nombre')?.touched)
+        ">
+        Máximo 10 caracteres
+      </div>
+    </div>
+
+    <!-- Input Apellido -->
+    <div class="mb-3">
+      <input type="text" name="apellido" id="apellido" placeholder="Apellido" formControlName="apellido"
+        class="form-control" [ngClass]="{'is-invalid': setIsInvalid('nombre')}" />
+
+      <!-- Mensaje de validación de requerido -->
+      <div class="invalid-feedback" *ngIf="
+          frmFormulario.hasError('required', 'apellido') &&
+          (!frmFormulario.get('apellido')?.pristine || frmFormulario.get('apellido')?.touched)
+        ">
+        El apellido es requerido
+      </div>
+
+      <!-- Mensaje de validación de mínimo 3 caractreres -->
+      <div class="invalid-feedback" *ngIf="
+          frmFormulario.hasError('minlength', 'apellido') &&
+          (!frmFormulario.get('apellido')?.pristine || frmFormulario.get('apellido')?.touched)
+        ">
+        Mínimo 3 caracteres
+      </div>
+
+      <!-- Mensaje de validación de máximo 3 caractreres -->
+      <div class="invalid-feedback" *ngIf="
+          frmFormulario.hasError('maxlength', 'apellido') &&
+          (!frmFormulario.get('apellido')?.pristine || frmFormulario.get('apellido')?.touched)
+        ">
+        Máximo 10 caracteres
+      </div>
+    </div>
+
+    <!-- Botonera -->
+    <div class="botonera">
+      <button type="submit" class="btn btn-primary">Enviar</button>
+      <button type="reset" class="btn btn-primary">Resetear</button>
+      <a [routerLink]="['/']" class="btn btn-primary">Index</a>
+    </div>
+
+  </form>
+</div>

@@ -1,0 +1,15 @@
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #fff;
+  border: 1px solid #e6e6e6;
+  margin: 16px;
+  border-radius: 8px;
+}
+
+.logo {
+  width: 120px;
+}
